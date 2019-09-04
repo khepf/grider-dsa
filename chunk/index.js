@@ -9,7 +9,7 @@
 * chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 */
 
-/**
+/** IMPLEMENTATION USING FOR OF LOOP
 * 1. create empty array to hold chunks called "chunked"
 * 2. for each element in the unchunked array
 *      retrieve the last element in "chunked"
@@ -18,7 +18,7 @@
 *      else add the current element into the chunk
 */
 
-function chunk(array, size) {
+function chunk1(array, size) {
    const chunked = [];
    for (let element of array) {
     const last = chunked[chunked.length - 1];
@@ -31,4 +31,23 @@ function chunk(array, size) {
    return chunked;
 }
 
-module.exports = chunk;
+
+/** IMPLEMENTATION USING SLICE + WHILE LOOP
+* 1. create empty "chunked" array
+* 2. create 'index' start at 0
+* 3. while index is less than array.length     
+*      push a slie of length 'size' from 'array' into 'chunked'
+*      add 'size' to 'index'
+*/
+function chunk2(array, size) {
+    const chunked = [];
+    let index = 0;
+
+    while (index < array.length) {
+        chunked.push(array.slice(index, index + size));
+        index += size;
+    }
+    return chunked;
+ }
+
+module.exports = [chunk1, chunk2];
