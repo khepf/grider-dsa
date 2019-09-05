@@ -50,4 +50,7 @@ function chunk2(array, size) {
     return chunked;
  }
 
-module.exports = [chunk1, chunk2];
+ module.exports = {
+     chunk1, chunk2
+ }
+
